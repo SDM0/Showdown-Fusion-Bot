@@ -1,4 +1,4 @@
-/**DATA */
+/** DATA */
 
 const pokemons = new Set([
     'bulbasaur',
