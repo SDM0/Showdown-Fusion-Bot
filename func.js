@@ -325,4 +325,20 @@ function fusType(mon1, mon2) {
     return fmon
 }
 
-export { fusAb, fusType, getMonID, getMonJSON }
+//
+function randPokeTeam(list) {
+    var mon1 = list[Math.floor(Math.random()*list.length)]
+    mon1 = mon1.charAt(0).toUpperCase() + mon1.slice(1);;
+
+    var mon2 = list[Math.floor(Math.random()*list.length)];
+                
+    while (mon1 == mon2) {
+        mon2 = list[Math.floor(Math.random()*list.length)];
+    }
+                
+    mon2 = mon2.charAt(0).toUpperCase() + mon2.slice(1);;
+
+    return [mon1, mon2]
+}
+
+export { fusAb, fusType, getMonID, getMonJSON, randPokeTeam }
