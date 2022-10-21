@@ -1,25 +1,9 @@
-import DiscordJS, { REST, Client, EmbedBuilder, IntentsBitField, Routes, ActivityType } from 'discord.js'
+import DiscordJS, { REST, EmbedBuilder, IntentsBitField, Routes, ActivityType } from 'discord.js'
 import dotenv from 'dotenv'
-import path, { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import express from 'express'
+import { pokemons, abilitySwap, nameException, nameFix, typeSwap, typeUni, abilitiesException, abilitiesFix, chandelureAbilities, clefableAbilities, clefairyAbilities, cleffaAbilities, darkraiAbilities, enteiAbilities, feebasAbilities, ferrothornAbilities, flygonAbilities, genesectAbilities, gengarAbilities, hydreigonAbilities, igglybuffAbilities, jigglypuffAbilities, koffingAbilities, kyuremAbilities, lampentAbilities, litwickAbilities, mewtwoAbilities, miloticAbilities, raikouAbilities, regigigasAbilities, reshiramAbilities, suicuneAbilities, talonflameAbilities, unownAbilities, weezingAbilities, wigglytuffAbilities, zapdosAbilities, zekromAbilities } from './vars.js'
+import { fusAb, fusType, getMonID, getMonJSON } from './func.js'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const app = express();
-const port = 3000
-
-app.get('/', (req, res) => {        //get requests to the root ("/") will route here
-    res.sendFile('index.html', {root: __dirname});      //server responds by sending the index.html file to the client's browser
-                                                        //the .sendFile method needs the absolute path to the file, see: https://expressjs.com/en/4x/api.html#res.sendFile 
-});
-
-app.listen(port, () => {            //server starts listening for any attempts from a client to connect at port: {port}
-    console.log(`Now listening on port ${port}...`); 
-});
-
-dotenv.config({ path: path.resolve(__dirname, '.env') })
+dotenv.config({ path: process.env.TOKEN })
 
 const TOKEN = process.env.TOKEN
 const CLIENT_ID = process.env.CLIENT_ID
@@ -251,22 +235,22 @@ client.on('interactionCreate', async (interaction) => {
 
                 //Ability of 1st mon
                 var mon1abilities = [];
-                if (mon1 != 'weezing') {
-                    var ab1 = mon1JSON.abilities;
+                if (abilitiesException.includes(mon1)) {
+                    var ab1 = abilitiesFix[abilitiesException.indexOf(mon1)];
                 } else {
-                    ab1 = weezingabilities.abilities;
+                    ab1 = mon1JSON.abilities;
                 }
                 for (i = 0; i < ab1.length; i++) {
                     mon1abilities.push([ab1[i].ability, ab1[i].is_hidden]);
                 }
 
                 //Abilities of 2nd mon
-                if (mon2 != 'weezing') {
-                    var ab2 = mon2JSON.abilities;
-                } else {
-                    ab2 = weezingabilities.abilities;
-                }
                 var mon2abilities = [];
+                if (abilitiesException.includes(mon2)) {
+                    var ab2 = abilitiesFix[abilitiesException.indexOf(mon2)];
+                } else {
+                    ab2 = mon2JSON.abilities;
+                }
                 for (i = 0; i < ab2.length; i++) {
                     mon2abilities.push([ab2[i].ability, ab2[i].is_hidden]);
                 }

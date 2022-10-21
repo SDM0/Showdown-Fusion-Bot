@@ -870,7 +870,12 @@ const typeSwap=
 ,["water","rock","Omanyte"]
 ,["water","rock","Omastar"]
 ,["steel","bug","Scizor"]
-,["steel","electric","Magnezone"]]
+,["steel","electric","Magnezone"]
+,["steel","water","Empoleon"]
+,["dark","ghost","Spiritomb"]
+,["steel","grass","Ferrothorn"]
+,["grass","psychic","Celebi"]
+,["flying","flying","Fletchinder"]]
 
 const typeUni =
 [["grass","Bulbasaur"]
@@ -933,3 +938,494 @@ const abilitySwap =
 "teddiursa",
 "ursaring",
 "absol"]
+
+//Chandelure
+const chandelureAbilities = [
+    {
+        "ability": {
+            "name": "flash-fire"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "flame-body",
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "shadow-tag",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Lampent, 
+const lampentAbilities = chandelureAbilities;
+
+//Litwick
+const litwickAbilities = chandelureAbilities;
+
+//Wigglytuff
+const wigglytuffAbilities = [
+    {
+        "ability": {
+            "name": "cute-charm"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "frisk",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Jigglypuff
+const jigglypuffAbilities = [
+    {
+        "ability": {
+            "name": "cute-charm"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "friend-guard",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Igglybuff
+const igglybuffAbilities = jigglypuffAbilities;
+
+//Zapdos
+const zapdosAbilities = [
+    {
+        "ability": {
+            "name": "pressure"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "lightning-rod",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Raikou
+const raikouAbilities = [
+    {
+        "ability": {
+            "name": "pressure"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "volt-absorb",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Entei
+const enteiAbilities = [
+    {
+        "ability": {
+            "name": "pressure"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "flash-fire",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Suicune
+const suicuneAbilities = [
+    {
+        "ability": {
+            "name": "pressure"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "water-absorb",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Milotic
+const miloticAbilities = [
+    {
+        "ability": {
+            "name": "marvel-scale"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "cute-charm",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Feebas
+const feebasAbilities = [
+    {
+        "ability": {
+            "name": "swift-swim"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "adaptability",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Gengar
+const gengarAbilities = [
+    {
+        "ability": {
+            "name": "levitate"
+        },
+        "is_hidden": false,
+    },
+]
+
+//Weezing
+const weezingAbilities = [
+    {
+        "ability": {
+            "name": "levitate"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "stench",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Koffing
+const koffingAbilities = weezingAbilities;
+
+//Mewtwo
+const mewtwoAbilities = [
+    {
+        "ability": {
+            "name": "pressure"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "immunity",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Unown
+const unownAbilities = [
+    {
+        "ability": {
+            "name": "levitate"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "mummy",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Flygon
+const flygonAbilities = [
+    {
+        "ability": {
+            "name": "levitate"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "dry-skin",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Regigigas
+const regigigasAbilities = [
+    {
+        "ability": {
+            "name": "slow-start"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "mold-breaker",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Darkrai
+const darkraiAbilities = [
+    {
+        "ability": {
+            "name": "bad-dreams"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "white-smoke",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Genesect
+const genesectAbilities = [
+    {
+        "ability": {
+            "name": "download"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "motor-drive",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Reshiram
+const reshiramAbilities = [
+    {
+        "ability": {
+            "name": "turboblaze"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "flare-boost",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Zekrom
+const zekromAbilities = [
+    {
+        "ability": {
+            "name": "teravolt"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "volt-absorb",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Kyurem
+const kyuremAbilities = [
+    {
+        "ability": {
+            "name": "pressure"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "ice-body",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Ferrothorn
+const ferrothornAbilities = [
+    {
+        "ability": {
+            "name": "iron-barbs"
+        },
+        "is_hidden": false,
+    },
+]
+
+//Talonflame
+const talonflameAbilities = [
+    {
+        "ability": {
+            "name": "big-pecks"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "gale-wings",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Hydreigon
+const hydreigonAbilities = [
+    {
+        "ability": {
+            "name": "levitate"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "hustle",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Cleffa
+const cleffaAbilities = [
+    {
+        "ability": {
+            "name": "magic-guard"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "cute-charm"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "friend-guard",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Clefairy
+const clefairyAbilities = cleffaAbilities;
+
+//Clefable
+const clefableAbilities = [
+    {
+        "ability": {
+            "name": "magic guard"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "cute charm"
+        },
+        "is_hidden": false,
+    },
+    {
+        "ability": {
+            "name": "unaware",
+        },
+        "is_hidden": true,
+    }
+]
+
+//Input
+const abilitiesException = [
+    "chandelure",
+    "lampent",
+    "litwick",
+    "wigglytuff",
+    "jigglypuff",
+    "igglybuff",
+    "zapdos",
+    "raikou",
+    "entei",
+    "suicune",
+    "milotic",
+    "feebas",
+    "gengar",
+    "weezing",
+    "koffing",
+    "mewtwo",
+    "unown",
+    "flygon",
+    "regigigas",
+    "darkrai",
+    "genesect",
+    "reshiram",
+    "zekrom",
+    "kyurem",
+    "ferrothorn",
+    "talonflame",
+    "hydreigon",
+    "cleffa",
+    "clefairy",
+    "clefable"
+]
+
+//Output
+const abilitiesFix = [
+    chandelureAbilities,
+    lampentAbilities,
+    litwickAbilities,
+    wigglytuffAbilities,
+    jigglypuffAbilities,
+    igglybuffAbilities,
+    zapdosAbilities,
+    raikouAbilities,
+    enteiAbilities,
+    suicuneAbilities,
+    miloticAbilities,
+    feebasAbilities,
+    gengarAbilities,
+    weezingAbilities,
+    koffingAbilities,
+    mewtwoAbilities,
+    unownAbilities,
+    flygonAbilities,
+    regigigasAbilities,
+    darkraiAbilities,
+    genesectAbilities,
+    reshiramAbilities,
+    zekromAbilities,
+    kyuremAbilities,
+    ferrothornAbilities,
+    talonflameAbilities,
+    hydreigonAbilities,
+    cleffaAbilities,
+    clefairyAbilities,
+    clefableAbilities
+]
+
+export { pokemons, abilitySwap, ids, nameException, nameFix, typeSwap, typeUni, abilitiesException, abilitiesFix, chandelureAbilities, clefableAbilities, clefairyAbilities, cleffaAbilities, darkraiAbilities, enteiAbilities, feebasAbilities, ferrothornAbilities, flygonAbilities, genesectAbilities, gengarAbilities, hydreigonAbilities, igglybuffAbilities, jigglypuffAbilities, koffingAbilities, kyuremAbilities, lampentAbilities, litwickAbilities, mewtwoAbilities, miloticAbilities, raikouAbilities, regigigasAbilities, reshiramAbilities, suicuneAbilities, talonflameAbilities, unownAbilities, weezingAbilities, wigglytuffAbilities, zapdosAbilities, zekromAbilities }

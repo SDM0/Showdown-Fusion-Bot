@@ -1,5 +1,7 @@
 /** FUNCTIONS */
 
+import { ids } from './vars.js'
+
 //Get the JSON file of a pokemon
 async function getMonJSON(url) {
     let response = await fetch(url);
@@ -322,3 +324,5 @@ function fusType(mon1, mon2) {
     }
     return fmon
 }
+
+export { fusAb, fusType, getMonID, getMonJSON }
