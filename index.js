@@ -1,7 +1,7 @@
 import DiscordJS, { REST, EmbedBuilder, IntentsBitField, Routes, ActivityType } from 'discord.js'
 import dotenv from 'dotenv'
-import { pokemons, abilitySwap, nameException, nameFix, typeSwap, typeUni, abilitiesException, abilitiesFix, chandelureAbilities, clefableAbilities, clefairyAbilities, cleffaAbilities, darkraiAbilities, enteiAbilities, feebasAbilities, ferrothornAbilities, flygonAbilities, genesectAbilities, gengarAbilities, hydreigonAbilities, igglybuffAbilities, jigglypuffAbilities, koffingAbilities, kyuremAbilities, lampentAbilities, litwickAbilities, mewtwoAbilities, miloticAbilities, raikouAbilities, regigigasAbilities, reshiramAbilities, suicuneAbilities, talonflameAbilities, unownAbilities, weezingAbilities, wigglytuffAbilities, zapdosAbilities, zekromAbilities } from './vars.js'
-import { fusAb, fusType, getMonID, getMonJSON } from './func.js'
+import { pokemons, abilitySwap, pkmnEvo1, pkmnEvo2, pkmnEvo3, nameException, nameFix, typeSwap, typeUni, abilitiesException, abilitiesFix, chandelureAbilities, clefableAbilities, clefairyAbilities, cleffaAbilities, darkraiAbilities, enteiAbilities, feebasAbilities, ferrothornAbilities, flygonAbilities, genesectAbilities, gengarAbilities, hydreigonAbilities, igglybuffAbilities, jigglypuffAbilities, koffingAbilities, kyuremAbilities, lampentAbilities, litwickAbilities, mewtwoAbilities, miloticAbilities, raikouAbilities, regigigasAbilities, reshiramAbilities, suicuneAbilities, talonflameAbilities, unownAbilities, weezingAbilities, wigglytuffAbilities, zapdosAbilities, zekromAbilities } from './vars.js'
+import { fusAb, fusType, getMonID, getMonJSON, randPokeTeam } from './func.js'
 
 dotenv.config({ path: process.env.TOKEN })
 
@@ -59,7 +59,27 @@ async function main() {
         },
         {
             name: 'randomteam',
-            description: 'Showcases a random team of fusions'
+            description: 'Showcases a random team of fusions',
+            options: [
+                {
+                    name: 'evoline',
+                    description: "Number of the evolution's stage (Between 1 to 3)",
+                    required: 'false',
+                    choices: [{
+                        name: '1',
+                        value: 'one',
+                    },
+                    {
+                        name: '2',
+                        value: 'two',
+                    },
+                    {
+                        name: '3',
+                        value: 'three',
+                    }
+                    ],
+                    type: 3
+            }]
         },
         {
             name: 'sprite',
@@ -362,16 +382,13 @@ client.on('interactionCreate', async (interaction) => {
                     })
                     .addFields(
                         { name: 'Types:', value: typ1 },
-                        {
-                            name: 'Stats:', value:
-                                'HP: ' + hp1 + ' ' + symbole[0][0] +
-                                '\nATK: ' + atk1 + ' ' + symbole[1][0] +
-                                '\nDEF: ' + def1 + ' ' + symbole[2][0] +
-                                '\nSPE.ATK: ' + spatk1 + ' ' + symbole[3][0] +
-                                '\nSPE.DEF: ' + spdef1 + ' ' + symbole[4][0] +
-                                '\nSPEED: ' + spe1 + ' ' + symbole[5][0] +
-                                '\nTotal: ' + bs1 + ' ' + symbole[6][0]
-                        },
+                        { name: 'HP: ', value: hp1 + ' ' + symbole[0][0], inline: true},
+                        { name: 'ATK: ', value: atk1 + ' ' + symbole[1][0], inline: true},
+                        { name: 'DEF: ', value: def1 + ' ' + symbole[2][0], inline: true},
+                        { name: 'SPATK: ', value: spatk1 + ' ' + symbole[3][0], inline: true},
+                        { name: 'SPDEF: ', value: spdef1 + ' ' + symbole[4][0], inline: true},
+                        { name: 'SPEED: ', value: spe1 + ' ' + symbole[5][0], inline: true},
+                        { name: 'BTS: ', value:bs1 + ' ' + symbole[6][0]},
                         { name: 'Abilities:', value: abs1 },
                     )
 
@@ -394,16 +411,13 @@ client.on('interactionCreate', async (interaction) => {
                     })
                     .addFields(
                         { name: 'Types:', value: typ2 },
-                        {
-                            name: 'Stats:', value:
-                                'HP: ' + hp2 + ' ' + symbole[0][1] +
-                                '\nATK: ' + atk2 + ' ' + symbole[1][1] +
-                                '\nDEF: ' + def2 + ' ' + symbole[2][1] +
-                                '\nSPE.ATK: ' + spatk2 + ' ' + symbole[3][1] +
-                                '\nSPE.DEF: ' + spdef2 + ' ' + symbole[4][1] +
-                                '\nSPEED: ' + spe2 + ' ' + symbole[5][1] +
-                                '\nTotal: ' + bs2 + ' ' + symbole[6][1]
-                        },
+                        { name: 'HP: ', value: hp2 + ' ' + symbole[0][1], inline: true},
+                        { name: 'ATK: ', value: atk2 + ' ' + symbole[1][1], inline: true},
+                        { name: 'DEF: ', value: def2 + ' ' + symbole[2][1], inline: true},
+                        { name: 'SPATK: ', value: spatk2 + ' ' + symbole[3][1], inline: true},
+                        { name: 'SPDEF: ', value: spdef2 + ' ' + symbole[4][1], inline: true},
+                        { name: 'SPEED: ', value: spe2 + ' ' + symbole[5][1], inline: true},
+                        { name: 'BTS: ', value:bs2 + ' ' + symbole[6][1]},
                         { name: 'Abilities:', value: abs2 },
                     )
                 interaction.reply({
@@ -716,16 +730,13 @@ client.on('interactionCreate', async (interaction) => {
             })
             .addFields(
                 { name: 'Types:', value: typ1 },
-                {
-                    name: 'Stats:', value:
-                        'HP: ' + hp1 + ' ' + symbole[0][0] +
-                        '\nATK: ' + atk1 + ' ' + symbole[1][0] +
-                        '\nDEF: ' + def1 + ' ' + symbole[2][0] +
-                        '\nSPE.ATK: ' + spatk1 + ' ' + symbole[3][0] +
-                        '\nSPE.DEF: ' + spdef1 + ' ' + symbole[4][0] +
-                        '\nSPEED: ' + spe1 + ' ' + symbole[5][0] +
-                        '\nTotal: ' + bs1 + ' ' + symbole[6][0]
-                },
+                { name: 'HP: ', value: hp1 + ' ' + symbole[0][0], inline: true},
+                { name: 'ATK: ', value: atk1 + ' ' + symbole[1][0], inline: true},
+                { name: 'DEF: ', value: def1 + ' ' + symbole[2][0], inline: true},
+                { name: 'SPATK: ', value: spatk1 + ' ' + symbole[3][0], inline: true},
+                { name: 'SPDEF: ', value: spdef1 + ' ' + symbole[4][0], inline: true},
+                { name: 'SPEED: ', value: spe1 + ' ' + symbole[5][0], inline: true},
+                { name: 'BTS: ', value:bs1 + ' ' + symbole[6][0]},
                 { name: 'Abilities:', value: abs1 },
             )
 
@@ -748,16 +759,13 @@ client.on('interactionCreate', async (interaction) => {
             })
             .addFields(
                 { name: 'Types:', value: typ2 },
-                {
-                    name: 'Stats:', value:
-                        'HP: ' + hp2 + ' ' + symbole[0][1] +
-                        '\nATK: ' + atk2 + ' ' + symbole[1][1] +
-                        '\nDEF: ' + def2 + ' ' + symbole[2][1] +
-                        '\nSPE.ATK: ' + spatk2 + ' ' + symbole[3][1] +
-                        '\nSPE.DEF: ' + spdef2 + ' ' + symbole[4][1] +
-                        '\nSPEED: ' + spe2 + ' ' + symbole[5][1] +
-                        '\nTotal: ' + bs2 + ' ' + symbole[6][1]
-                },
+                { name: 'HP: ', value: hp2 + ' ' + symbole[0][1], inline: true},
+                { name: 'ATK: ', value: atk2 + ' ' + symbole[1][1], inline: true},
+                { name: 'DEF: ', value: def2 + ' ' + symbole[2][1], inline: true},
+                { name: 'SPATK: ', value: spatk2 + ' ' + symbole[3][1], inline: true},
+                { name: 'SPDEF: ', value: spdef2 + ' ' + symbole[4][1], inline: true},
+                { name: 'SPEED: ', value: spe2 + ' ' + symbole[5][1], inline: true},
+                { name: 'BTS: ', value:bs2 + ' ' + symbole[6][1]},
                 { name: 'Abilities:', value: abs2 },
             )
         interaction.reply({
@@ -767,20 +775,31 @@ client.on('interactionCreate', async (interaction) => {
         let fusions = []
         let items = Array.from(pokemons);
 
-        for (i = 0; i < 6; i++) {
-            
-            mon1 = items[Math.floor(Math.random()*items.length)]
-            mon1 = mon1.charAt(0).toUpperCase() + mon1.slice(1);;
+        let copyItems = [...items]
+        let copyPkmnEvo1 = [...pkmnEvo1]
+        let copyPkmnEvo2 = [...pkmnEvo2]
+        let copyPkmnEvo3 = [...pkmnEvo3]
 
-            mon2 = items[Math.floor(Math.random()*items.length)];
-            
-            while (mon1 == mon2) {
-                mon2 = items[Math.floor(Math.random()*items.length)];
+        let listMons = [copyItems, copyPkmnEvo1, copyPkmnEvo2, copyPkmnEvo3]
+        var dictNum = {
+            "one" : 1,
+            "two" : 2,
+            "three" : 3
+        }
+
+        if (options.data == undefined) {
+            for (i = 0; i < 6; i++) {            
+                    let res = randPokeTeam(listMons[0])
+                    listMons[0] = listMons[0].filter(item => item !== res[0]).filter(item => item !== res[1])
+                    fusions.push(res[0] + "/" + res[1])
+            } 
+        } else {
+            var num = dictNum[options.data[0].value]
+            for (i = 0; i < 6; i++) {
+                let res = randPokeTeam(listMons[num])
+                listMons[num] = listMons[num].filter(item => item !== res[0]).filter(item => item !== res[1])
+                fusions.push(res[0] + "/" + res[1])
             }
-            
-            mon2 = mon2.charAt(0).toUpperCase() + mon2.slice(1);;
-
-            fusions.push(mon1 + "/" + mon2)
         }
 
         const team = new EmbedBuilder()
