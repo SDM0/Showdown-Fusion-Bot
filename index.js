@@ -58,6 +58,10 @@ async function main() {
             description: 'Showcases a random fusion'
         },
         {
+            name: 'randomteam',
+            description: 'Showcases a random team of fusions'
+        },
+        {
             name: 'sprite',
             description: 'Showcases the sprite of a fusion',
             options: [
@@ -425,6 +429,7 @@ client.on('interactionCreate', async (interaction) => {
                 { name: '/name', value: 'Showcases specific names exceptions (ex: Nidoran-M ...)' },
                 { name: '/pokemon [pokemon]', value: 'Checks if the pokemon exists in Pokemon IF' },
                 { name: '/random', value: 'Showcases a random fusion' },
+                { name: '/randomteam', value: 'Showcases a team of random fusions' },
                 { name: '/sprite [pokemon1] [pokemon2]', value: 'Showcases the sprite of a fusion' }
             )
         interaction.reply({
@@ -757,6 +762,40 @@ client.on('interactionCreate', async (interaction) => {
             )
         interaction.reply({
             embeds: [result1, result2]
+        })
+    } else if (commandName == "randomteam") {
+        let fusions = []
+        let items = Array.from(pokemons);
+
+        for (i = 0; i < 6; i++) {
+            
+            mon1 = items[Math.floor(Math.random()*items.length)]
+            mon1 = mon1.charAt(0).toUpperCase() + mon1.slice(1);;
+
+            mon2 = items[Math.floor(Math.random()*items.length)];
+            
+            while (mon1 == mon2) {
+                mon2 = items[Math.floor(Math.random()*items.length)];
+            }
+            
+            mon2 = mon2.charAt(0).toUpperCase() + mon2.slice(1);;
+
+            fusions.push(mon1 + "/" + mon2)
+        }
+
+        const team = new EmbedBuilder()
+            .setTitle('Your random team:')
+            .setColor("#bdab39")
+            .addFields(
+                {name:"1:", value: fusions[0], inline: true },
+                {name:"2:", value: fusions[1], inline: true },
+                {name:"3:", value: fusions[2], inline: true },
+                {name:"4:", value: fusions[3], inline: true },
+                {name:"5:", value: fusions[4], inline: true },
+                {name:"6:", value: fusions[5], inline: true },
+            )
+        interaction.reply({
+            embeds: [team]
         })
     } else if (commandName == 'sprite') {
         let mon1 = (String(options.data[0].value)).toLowerCase();
